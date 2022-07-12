@@ -54,18 +54,27 @@ Example:
 mongosh “mongodb+srv://mongodbuser:mongodbuser123@cluster0.yzgln.mongodb.net/prashantverma?retryWrites=true&w=majority"
 ```
 1. How many products did you scrape? 
-- Query: db.flipkart.countDocuments() 
-Output: 3934
-
+- Query - `Output: 3934`
+```sh
+   db.flipkart.countDocuments()
+``` 
 2. How many unique brands are present in the collection? 
-- Query: db.flipkart.distinct('brand').length
-Output: 276
-
+- Query - `Output: 276`
+```sh 
+   db.flipkart.distinct('brand').length
+```
 3. Which brand in Topwear section is selling the most number of products?
-- Query: db.flipkart.aggregate([{$group: {_id: "$brand", count: {$sum: 1}}}, {$sort:{count: -1, _id: 1}}])
+- Query 
+
+```sh 
+   db.flipkart.aggregate([{$group: {_id: "$brand", count: {$sum: 1}}}, {$sort:{count: -1, _id: 1}}])
+```
 
 4. How many products have `shirt` in their name?
-- Query: db.flipkart.find({"name" : /shirt/ })
+- Query 
+```sh 
+   db.flipkart.find({"name" : /shirt/ })
+```
 
 ## Documents and References
 
